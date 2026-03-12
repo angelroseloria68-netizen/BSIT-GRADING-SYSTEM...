@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Grading System</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f4f4;
+margin:0;
+}
+
+.header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:#7c1d0c;
+color:rgb(227, 235, 235);
+padding:10px;
+}
+
+.logo{
+width:80px;
+height:80px;
+}
+
+.title{
+flex-grow:1;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.container{
+width:1000px;
+margin:30px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+}
+
+.info input{
+width:140px;
+padding:5px;
+margin:5px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th,td{
+border:1px solid black;
+padding:8px;
+text-align:center;
+}
+
+.grade{
+width:80px;
+}
+
+button{
+margin:5px;
+padding:8px 12px;
+border:none;
+background:#812d14;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#811414;
+}
+
+.averagebox{
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<img src="https://scontent.fceb1-3.fna.fbcdn.net/v/t39.30808-6/308664628_508398454628810_5231307978359740596_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeHmG6eBLohfBZf_fD71eyMYCcl9fh129qoJyX1-HXb2qgEtnCJIZW2NqZTs_f8viHPck6K8jYiWtQAlx1qN9EQR&_nc_ohc=20cx1VOEZTwQ7kNvwGO4DxA&_nc_oc=AdmQK0z_EVUznE_Jt3ulXxFrgXR1Fq52DcqAfyRPROLTUP90h0tQTa9HVnwS1MJdf3k&_nc_zt=23&_nc_ht=scontent.fceb1-3.fna&_nc_gid=4meBf3QhWgvLwPwoa1yK5w&_nc_ss=8&oh=00_AfzLBrvw91z-JIuW3p_-gYTGQjTdaydyNdr1vcoYgzMpKA&oe=69B920C4" class="logo">
+
+<div class="title">ONLINE GRADING SYSTEM</div>
+
+<img src=" https://scontent.fceb1-2.fna.fbcdn.net/v/t39.30808-1/438966611_454488780298522_102602721413943135_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeEQ2E1Y9ZszzcZkCiNUAPqHqkBarDWxK8mqQFqsNbEryZwjHGFQyyOXzk9-ri9jB8L4yDlTUZYDxqinlYbvj2Di&_nc_ohc=eEJdK1Pg9w4Q7kNvwG3Fz95&_nc_oc=Adk_5wy8W1oAq2lE07_pklgbqwYDcedV837uXhctEUk4idqtE3mTq-v5gYQHexkflW8&_nc_zt=24&_nc_ht=scontent.fceb1-2.fna&_nc_gid=I8fk0PTf83V4J7Mls348EQ&_nc_ss=8&oh=00_Afw-sxVQTZgURxBpXd_P5jFhBFb3WAg1KPfr9m6mP7-6QQ&oe=69B91480" class="logo">
+
+</div>
+
+
+<div class="container">
+
+<h3>Student Information</h3>
+
+<div class="info">
+Name <input type="text">
+Section <input type="text">
+Semester <input type="text">
+Date <input type="date">
+</div>
+
+<table id="gradetable">
+
+<tr>
+<th>Course No</th>
+<th>Descriptive Title</th>
+<th>Units</th>
+<th>Prerequisite</th>
+<th>Final Grade</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>IT101</td>
+<td>Introduction to Computing</td>
+<td>3</td>
+<td>None</td>
+<td><input type="number" class="grade"></td>
+<td>
+<button onclick="editRow(this)">Edit</button>
+<button onclick="deleteRow(this)">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>IT102</td>
+<td>Computer Programming 1</td>
+<td>3</td>
+<td>None</td>
+<td><input type="number" class="grade"></td>
+<td>
+<button onclick="editRow(this)">Edit</button>
+<button onclick="deleteRow(this)">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>IT103</td>
+<td>Discrete Mathematics</td>
+<td>3</td>
+<td>None</td>
+<td><input type="number" class="grade"></td>
+<td>
+<button onclick="editRow(this)">Edit</button>
+<button onclick="deleteRow(this)">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>IT104</td>
+<td>Human Computer Interaction</td>
+<td>3</td>
+<td>IT101</td>
+<td><input type="number" class="grade"></td>
+<td>
+<button onclick="editRow(this)">Edit</button>
+<button onclick="deleteRow(this)">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>IT105</td>
+<td>Networking Fundamentals</td>
+<td>3</td>
+<td>IT101</td>
+<td><input type="number" class="grade"></td>
+<td>
+<button onclick="editRow(this)">Edit</button>
+<button onclick="deleteRow(this)">Delete</button>
+</td>
+</tr>
+
+</table>
+
+<br>
+
+<button onclick="addRow()">Add Subject</button>
+<button onclick="calculateAverage()">Compute Average</button>
+<button onclick="saveData()">Save</button>
+
+
+<div class="averagebox">
+
+<h3>Average </h3>
+<input type="text" id="avg" readonly>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ADD SUBJECT */
+
+function addRow(){
+
+let table=document.getElementById("gradetable");
+
+let row=table.insertRow();
+
+row.innerHTML=
+"<td contenteditable='true'></td>"+
+"<td contenteditable='true'></td>"+
+"<td contenteditable='true'></td>"+
+"<td contenteditable='true'></td>"+
+"<td><input type='number' class='grade'></td>"+
+"<td><button onclick='editRow(this)'>Edit</button> <button onclick='deleteRow(this)'>Delete</button></td>";
+
+}
+
+/* DELETE SUBJECT */
+
+function deleteRow(btn){
+
+let row=btn.parentNode.parentNode;
+row.remove();
+
+}
+
+/* EDIT */
+
+function editRow(btn){
+
+let row=btn.parentNode.parentNode;
+row.contentEditable=true;
+
+}
+
+/* CALCULATE AVERAGE */
+
+function calculateAverage(){
+
+let grades=document.querySelectorAll(".grade");
+let total=0;
+let count=0;
+
+grades.forEach(function(g){
+
+if(g.value!=""){
+total+=parseFloat(g.value);
+count++;
+}
+
+});
+
+let avg=0;
+
+if(count>0){
+avg=total/count;
+}
+
+document.getElementById("avg").value=avg.toFixed(2);
+
+}
+
+/* SAVE */
+
+function saveData(){
+
+alert("Student Grades Saved Successfully!");
+
+}
+
+</script>
+
+</body>
+</html>
